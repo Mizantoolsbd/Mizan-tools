@@ -1,37 +1,16 @@
-<!DOCTYPE html>
-<html lang="bn">
-<head>
-  <meta charset="UTF-8">
-  <title>Mizan Tools</title>
-  <style>
-    body { font-family: Arial; text-align: center; padding: 50px; background: #f0f8ff; }
-    h1 { color: #007bff; }
-    .box { background: white; padding: 20px; border-radius: 10px; margin: 20px auto; width: 90%; max-width: 600px; box-shadow: 0 0 10px #ccc; }
-    textarea { width: 90%; height: 150px; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px; }
-    button { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; margin-top: 10px; cursor: pointer; }
-    #result { margin-top: 15px; font-weight: bold; color: green; }
-  </style>
-</head>
-<body>
-  <h1>স্বাগতম Mizan Tools এ</h1>
-  <p>বাংলাদেশের ফ্রি অনলাইন টুলস</p>
-  
-  <div class="box">
-    <h2>Word Counter টুল</h2>
-    <textarea id="text" placeholder="এখানে লেখা পেস্ট করুন..."></textarea>
-    <br>
-    <button onclick="countWords()">গণনা করুন</button>
-    <div id="result"></div>
-  </div>
+<div class="box">
+    <h2>BMI Calculator টুল</h2>
+    উচ্চতা: <input type="number" id="height" placeholder="ফুটে লিখুন"> ফুট <br><br>
+    ওজন: <input type="number" id="weight" placeholder="কেজিতে লিখুন"> কেজি <br><br>
+    <button onclick="calcBMI()">BMI হিসাব করুন</button>
+    <div id="bmi_result"></div>
+</div>
 
 <script>
-function countWords() {
-  let text = document.getElementById("text").value;
-  let words = text.trim().split(/\s+/).filter(word => word.length > 0).length;
-  let chars = text.length;
-  document.getElementById("result").innerHTML = "শব্দ: " + words + " | অক্ষর: " + chars;
-}
-</script>
-
-</body>
-</html>
+function calcBMI() {
+  let h = document.getElementById("height").value;
+  let w = document.getElementById("weight").value;
+  let bmi = w / (h * h * 0.0929); // ফুট to মিটার
+  bmi = bmi.toFixed(1);
+  let status = bmi < 18.5 ? "চিকন" : bmi < 25 ? "স্বাভাবিক" : "ওজন বেশি";
+  document.getElementById("bmi_result").innerHTML = "আপনার
