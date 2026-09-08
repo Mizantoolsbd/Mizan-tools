@@ -14,3 +14,6 @@ function calcBMI() {
   bmi = bmi.toFixed(1);
   let status = bmi < 18.5 ? "চিকন" : bmi < 25 ? "স্বাভাবিক" : "ওজন বেশি";
   document.getElementById("bmi_result").innerHTML = "আপনার
+document.getElementById("bmi_result").innerHTML = "আপনার BMI: " + bmi + " - " + status;
+}
+</script>
